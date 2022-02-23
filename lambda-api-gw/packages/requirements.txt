@@ -1,0 +1,13 @@
+Flask
+boto3
+botocore
+requests
+aws-xray-sdk
+flask-swagger-ui
+flask_lambda
+jinja2
+markupsafe
+werkzeug
+itsdangerous
+click
+flask-lambda-support

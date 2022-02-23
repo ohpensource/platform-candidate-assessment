@@ -1,0 +1,252 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the swagger file that goes with our server code",
+    "version": "1.0.0",
+    "title": "Swagger Rest Article"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "basePath": "/",
+  "paths": {
+    "/movies": {
+      "get": {
+        "operationId": "movies.get_all",
+        "tags": [
+          "movies"
+        ],
+        "summary": "Read the entire set of movies, sorted by last info",
+        "description": "Read the entire set of movies, sorted by last info",
+        "responses": {
+          "200": {
+            "description": "Successfully read movies set operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "Title": {
+                    "type": "string",
+                    "description": "Movie title"
+                  },
+                  "Year": {
+                    "type": "string",
+                    "description": "Movie year"
+                  },
+                  "Info": {
+                    "type": "string",
+                    "description": "Movie info"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "movies.create",
+        "tags": [
+          "movies"
+        ],
+        "summary": "Create a movie",
+        "description": "Create a new movie",
+        "parameters": [
+          {
+            "name": "movie",
+            "in": "body",
+            "description": "movie to create",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Year": {
+                  "type": "string",
+                  "description": "Movie year"
+                },
+                "Title": {
+                  "type": "string",
+                  "description": "Movie title"
+                },
+                "Plot": {
+                  "type": "string",
+                  "description": "Movie plot summary"
+                },
+                "Rating": {
+                  "type": "string",
+                  "description": "Movie rating"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully created movie",
+            "schema": {
+              "properties": {
+                "Title": {
+                  "type": "string",
+                  "description": "Movie title"
+                },
+                "Year": {
+                  "type": "string",
+                  "description": "Movie year"
+                },
+                "Info": {
+                  "type": "string",
+                  "description": "Movie info"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies/?year={year},title={title}": {
+      "get": {
+        "operationId": "movies.get_item",
+        "tags": [
+          "movies"
+        ],
+        "summary": "Read one movie",
+        "description": "Read one movie",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "description": "Year of the movie to get",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "title",
+            "in": "path",
+            "description": "Title of the movie to get",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully read movie from movies data operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Title": {
+                  "type": "string",
+                  "description": "Movie title"
+                },
+                "Year": {
+                  "type": "string",
+                  "description": "Movie year"
+                },
+                "Info": {
+                  "type": "string",
+                  "description": "Movie info"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "movies.update",
+        "tags": [
+          "movies"
+        ],
+        "summary": "Update a movie",
+        "description": "Update a movie",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "description": "Year of the movie to get",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "title",
+            "in": "path",
+            "description": "Title of the movie to get",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "movie",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Year": {
+                  "type": "string",
+                  "description": "Movie year"
+                },
+                "Title": {
+                  "type": "string",
+                  "description": "Movie title"
+                },
+                "Info": {
+                  "type": "string",
+                  "description": "Movie info"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully updated movie",
+            "schema": {
+              "properties": {
+                "Year": {
+                  "type": "string",
+                  "description": "Movie year"
+                },
+                "Title": {
+                  "type": "string",
+                  "description": "Movie title"
+                },
+                "Info": {
+                  "type": "string",
+                  "description": "Movie info"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "movies.delete",
+        "tags": [
+          "movies"
+        ],
+        "summary": "Delete a movie from the movies list",
+        "description": "Delete a movie",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "description": "Year of the movie to get",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "title",
+            "in": "path",
+            "description": "Title of the movie to get",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted a movie"
+          }
+        }
+      }
+    }
+  }
+}

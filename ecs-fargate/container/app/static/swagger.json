@@ -1,0 +1,208 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Movies Database API",
+    "version": "0.1",
+    "title": "Movies Database API"
+  },
+  "paths": {
+    "/movies": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "description": "Read the entire set of movies, sorted by last info",
+        "responses": {
+          "200": {
+            "description": "Successfully read movies set operation",
+            "schema": {
+              "$ref": "#/definitions/Model0"
+            }
+          }
+        }
+      }
+    },
+    "/movies/?year={year},title={title}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "summary": "Read one movie",
+        "description": "Read one movie",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "1933"
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "King Kong"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully read movie from movies data operation",
+            "schema": {
+              "$ref": "#/definitions/Model1"
+            }
+          }
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "summary": "Create a movie",
+        "description": "Create a new movie",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "2020"
+          },
+          {
+            "name": "plot",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "Killer virus takes over the world the next wave"
+          },
+          {
+            "name": "rating",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "1.5"
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "My Awesome Movie 2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully created movie",
+            "schema": {
+              "$ref": "#/definitions/Model2"
+            }
+          }
+        }
+      }
+    },
+    "/echo": {
+      "get": {
+        "produces": [
+          "text/html"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Test available methods",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Welcome to Movies Database API",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Model0": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "Title": {
+            "type": "string",
+            "description": "Movie title"
+          },
+          "Year": {
+            "type": "string",
+            "description": "Movie year"
+          },
+          "Info": {
+            "type": "string",
+            "description": "Movie info"
+          }
+        }
+      }
+    },
+    "Headers": {
+      "properties": {
+        "Content-Type": {
+          "type": "string"
+        }
+      }
+    },
+    "Model1": {
+      "type": "object",
+      "properties": {
+        "Title": {
+          "type": "string",
+          "description": "Movie title"
+        },
+        "Year": {
+          "type": "string",
+          "description": "Movie year"
+        },
+        "Info": {
+          "type": "string",
+          "description": "Movie info"
+        }
+      }
+    },
+    "Model2_Headers": {
+      "properties": {
+        "Content-Type": {
+          "type": "string"
+        }
+      }
+    },
+    "Model2": {
+      "properties": {
+        "Title": {
+          "type": "string",
+          "description": "Movie title"
+        },
+        "Year": {
+          "type": "string",
+          "description": "Movie year"
+        },
+        "Info": {
+          "type": "string",
+          "description": "Movie info"
+        }
+      }
+    }
+  }
+}
