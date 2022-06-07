@@ -1,6 +1,6 @@
 # Ohpen Candidate Assessment for DevOps roles 
 
-In this assignment, you have 2 
+In this assignment, you have 2 exercises to choose from:
 
 - [lambda-api-gw](https://github.com/ohpensource/platform-candidate-assessment/tree/main/lambda-api-gw): Folder containing exercise 1.
 - [ecs-fargate](https://github.com/ohpensource/platform-candidate-assessment/tree/main/ecs-fargate): Folder containing exercise 2.
